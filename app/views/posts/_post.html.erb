@@ -1,6 +1,6 @@
-<div class="card border-none my-2">
-  <div class="card-body rounded shadow-sm">
-    <div id="<%= dom_id post %>">
+<div id="<%= dom_id post %>">
+  <div class="card border-none my-2">
+    <div class="card-body rounded shadow-sm">
       <p>
         <strong>Title:</strong>
         <%= post.title %>
@@ -9,10 +9,10 @@
         <strong>Body:</strong>
         <%= post.body %>
       </p>
+      <p>
+        <%= link_to "Edit this post", edit_post_path(post) %> |
+        <%= button_to "Destroy this post", post, method: :delete %>
+      </p>
     </div>
-    <p>
-      <%= link_to "Edit this post", edit_post_path(post) %> |
-      <%= button_to "Destroy this post", post, method: :delete %>
-    </p>
   </div>
 </div>
