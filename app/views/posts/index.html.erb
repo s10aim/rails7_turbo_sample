@@ -9,8 +9,6 @@
 <hr>
 
 <div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <%# <%= render "post", locals: { post: post } %>
-  <% end %>
+  <%= render @posts %>
+  <%# <%= render partial: "post", collection: @posts, as: "post" %>
 </div>
