@@ -1,0 +1,5 @@
+<%= turbo_stream.update @post do %>
+  <%= render @post %>
+  <%#= render "post", post: @post %>
+  <%#= render partial: "post", locals: { post: @post } %>
+<% end %>

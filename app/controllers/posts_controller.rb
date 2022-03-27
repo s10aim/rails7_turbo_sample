@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :redirect_index, only: [:new, :edit]
 
   def index
     @posts = Post.order(created_at: :asc)
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_url, notice: "Post was successfully updated."
+      # redirect_to posts_url, notice: "Post was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,5 +42,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def redirect_index
+    redirect_to posts_url unless turbo_frame_request?
   end
 end
