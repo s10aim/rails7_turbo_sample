@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    render turbo_stream: turbo_stream.remove(@post)
   end
 
   private
