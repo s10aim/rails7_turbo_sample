@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-floating mb-3">
+    <%= form.text_field :title, class: "form-control", placeholder: "title" %>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
   </div>
 
-  <div>
+  <div class="form-floating mb-3">
+    <%= form.text_area :body, class: "form-control", placeholder: "body" %>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit post.new_record? ? "送信" : "更新", class: "btn btn-primary" %>
   </div>
 <% end %>

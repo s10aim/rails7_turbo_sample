@@ -9,10 +9,11 @@
         <strong>Body:</strong>
         <%= post.body %>
       </p>
-      <p>
-        <%= link_to "Edit this post", edit_post_path(post) %>
-        <%= button_to "Destroy this post", post, method: :delete %>
-      </p>
+      <div>
+        <%= link_to "編集", edit_post_path(post), class: "btn btn-success" %>
+        <%= button_to "削除", post, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "削除しますか？" } } %>
+        <%# GETリクエスト以外を link_to で使うとバグるから button_to, そして button_to は formタグ！ %>
+      </div>
     </div>
   </div>
 <% end %>
