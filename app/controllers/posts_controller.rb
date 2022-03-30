@@ -14,17 +14,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      # redirect_to posts_url, notice: "Post was successfully created."
-    else
+    unless @post.save
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @post.update(post_params)
-      # redirect_to posts_url, notice: "Post was successfully updated."
-    else
+    unless @post.update(post_params)
       render :edit, status: :unprocessable_entity
     end
   end

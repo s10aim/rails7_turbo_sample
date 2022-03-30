@@ -2,9 +2,9 @@
 
 <h1>Posts</h1>
 
-<div id="new_form">
-<%= render "new_form" %>
-</div>
+<%= turbo_frame_tag 'new_post' do %>
+  <%= render "form", post: Post.new %>
+<% end %>
 
 <hr>
 
