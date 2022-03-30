@@ -1,25 +1,6 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-floating mb-3">
-    <%= form.text_field :title, class: "form-control", placeholder: "title" %>
-    <%= form.label :title, style: "display: block" %>
-  </div>
-
-  <div class="form-floating mb-3">
-    <%= form.text_area :body, class: "form-control", placeholder: "body" %>
-    <%= form.label :body, style: "display: block" %>
-  </div>
+<%= simple_form_for post do |form| %>
+  <%= form.input :title %>
+  <%= form.input :body %>
 
   <div>
     <%= form.submit post.new_record? ? "送信" : "更新", class: "btn btn-primary" %>
